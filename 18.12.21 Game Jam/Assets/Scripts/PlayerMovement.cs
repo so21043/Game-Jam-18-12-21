@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        animator.SetBool("IsJumping", !GetComponent<CharacterController2D>().m_Grounded);
+
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, 3f);
 
         if (Input.GetButton("Crouch"))
