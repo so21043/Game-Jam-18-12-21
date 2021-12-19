@@ -25,8 +25,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            jump = true;
-            animator.SetBool("IsJumping", true);
+            if (crouch == false) {
+                jump = true;
+                animator.SetBool("IsJumping", true);
+            }
         }
 
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, 3f);

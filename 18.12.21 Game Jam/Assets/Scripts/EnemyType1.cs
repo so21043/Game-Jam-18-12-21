@@ -17,6 +17,8 @@ public class EnemyType1 : MonoBehaviour
     public GameObject player;
     public float lookDistance;
 
+    public int type;
+
 
     // Start is called before the first frame update
     void Start() {
@@ -34,29 +36,34 @@ public class EnemyType1 : MonoBehaviour
 
         // checking if player is seen using raycasts
         //Debug.DrawLine(new Vector2(200,200), Vector3.zero, Color.green, 2, false);
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.right, lookDistance);
+        if (type == 1) {
+            RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.right, lookDistance);
 
-        if (hitInfo.collider != null) {
-            //Debug.DrawLine(transform.position, hitInfo.point, Color.red);
-            //chasing = true;
-            if (hitInfo.collider.CompareTag("Player")) {
-                //Debug.DrawLine(transform.position, hitInfo.point, Color.blue);
-                chasing = true;
+            if (hitInfo.collider != null) {
+                //Debug.DrawLine(transform.position, hitInfo.point, Color.red);
+                //chasing = true;
+                if (hitInfo.collider.CompareTag("Player")) {
+                    //Debug.DrawLine(transform.position, hitInfo.point, Color.blue);
+                    chasing = true;
+                }
+
             }
-
-        } /*else {
-            Debug.DrawLine(transform.position, transform.position + transform.right * lookDistance, Color.green);
-            //chasing = false;
-        }*/
+        }
     }
 
     void FixedUpdate() {
-        if (chasing == false) {
-            patrol();
+        if (type == 1) {
+            if (chasing == false) {
+                patrol();
+            }
+            if (chasing == true) {
+                chase();
+            }    
         }
-        if (chasing == true) {
-            chase();
-        }    
+
+        if (type == 0) {
+            patrolNormal();
+        }
     }
 
     void patrol() {
@@ -65,6 +72,29 @@ public class EnemyType1 : MonoBehaviour
         } else {
             speed = -speed;
             patrolDistance = patrolDistanceOrig;
+        }
+
+        movement = new Vector2(speed, 0f);
+
+        // flipping sprite
+        if (speed > 0) {
+            transform.rotation = new Quaternion(0f,0f,0f,0f);
+        }
+        if (speed < 0) {
+            transform.rotation = new Quaternion(0f,0f,180f,0f);
+        }
+
+        rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
+    }
+
+    void patrolNormal() {
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.right, 1f);
+
+        if (hitInfo.collider != null) {
+            if (hitInfo.collider.CompareTag("Wall")) {
+                //Debug.DrawLine(transform.position, hitInfo.point, Color.blue);
+                speed = -speed;
+            }
         }
 
         movement = new Vector2(speed, 0f);
