@@ -815,7 +815,7 @@ Transform:
 --- !u!4 &1024383265 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8016108573093133375, guid: 426102400f1c7f644b584debb283f954, type: 3}
-  m_PrefabInstance: {fileID: 8016108572639438110}
+  m_PrefabInstance: {fileID: 4937824187047593220}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1056351653
 GameObject:
@@ -6484,7 +6484,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &8016108572639438110
+--- !u!1001 &4937824187047593220
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2

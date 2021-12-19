@@ -112,6 +112,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 8016108573999961309}
   m_CeilingCheck: {fileID: 8016108573242872580}
   m_CrouchDisableCollider: {fileID: 8016108573093133371}
+  m_Grounded: 0
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -176,7 +177,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.020125685, y: -0.0030246377}
+  m_Offset: {x: -0.020125687, y: 0.05513224}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -187,7 +188,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15885396, y: 0.29249448}
+  m_Size: {x: 0.15885396, y: 0.17618072}
   m_EdgeRadius: 0
 --- !u!58 &8016108573093133370
 CircleCollider2D:
@@ -220,6 +221,7 @@ MonoBehaviour:
   controller: {fileID: 8016108573093133373}
   animator: {fileID: 8016108573093133369}
   runSpeed: 50
+  CanvasObject: {fileID: 0}
 --- !u!95 &8016108573093133369
 Animator:
   serializedVersion: 3
