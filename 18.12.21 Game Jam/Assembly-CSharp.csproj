@@ -39,6 +39,7 @@
      <Compile Include="Assets\PlayerMovement.cs" />
      <Compile Include="Assets\CharacterController2D.cs" />
      <Compile Include="Assets\Scripts\EnemyType1.cs" />
+     <Compile Include="Assets\Scripts\CameraSwitch.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.25f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
