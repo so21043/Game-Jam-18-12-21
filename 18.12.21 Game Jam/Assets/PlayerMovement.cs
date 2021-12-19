@@ -29,15 +29,29 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsJumping", true);
         }
 
-        if (Input.GetButtonDown("Crouch"))
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, 3f);
+
+        if (Input.GetButton("Crouch"))
         {
             crouch = true;
             Debug.Log("Crouching");
         }
         else if (Input.GetButtonUp("Crouch"))
         {
-            crouch = false;
+            if (hitInfo.collider == null) {
+                crouch = false;
+            }
         }
+
+        if (hitInfo.collider != null) {
+            //Debug.DrawLine(transform.position, hitInfo.point, Color.red);
+        } else {
+            if (!Input.GetButton("Crouch")) {
+                crouch = false;
+            }
+        }
+
+        //Debug.DrawLine(transform.position, transform.position + transform.up * 3f, Color.green);
     }
 
     public void OnLanding()
